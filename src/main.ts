@@ -125,13 +125,17 @@
 // main();
 
 //day10
-import { calculateSyntaxErrorScore, readFile } from "./day10/day10";
+import { calculateSyntaxErrorScore, processLinesForCompletion, readFile } from "./day10/day10";
 
-const fileName = './src/day10/input.txt';
+const fileName = './src/day10/inputDay10.txt';
 async function main() {
     const lines = await readFile(fileName);
     const totalScore = calculateSyntaxErrorScore(lines);
     console.log("Total Syntax Error Score:", totalScore);
+    const completionScores = processLinesForCompletion(lines);
+    completionScores.sort((a, b) => a - b);
+    const middleScore = completionScores[Math.floor(completionScores.length / 2)];
+    console.log("Middle completion score:", middleScore);
 }
 
 main();
