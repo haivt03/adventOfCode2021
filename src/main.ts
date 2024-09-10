@@ -1,7 +1,8 @@
 // // day 1
 // import { countDepthIncreses, createThreeMeasurement, readFile } from "./day1/day1";
 
-import { calculationFuelCost, findMedian, findMediumPos, readFile } from "./day7/day7";
+
+
 
 // const fileName = './src/day1/inputDay1.txt';
 // async function main(fileName: string): Promise<void> {
@@ -71,18 +72,51 @@ import { calculationFuelCost, findMedian, findMediumPos, readFile } from "./day7
 // main();
 
 
-//day7
-const fileName = './src/day7/inputDay7.txt';
+// //day7
+//import { calculationFuelCost, findMedian, findMediumPos, readFile } from "./day7/day7";
+// const fileName = './src/day7/inputDay7.txt';
+// async function main() {
+//     const positions = await readFile(fileName);
+//     const cheapestPosition1 = findMedian(positions);
+//     const cheapestPosition2 = findMediumPos(positions);
+//     const fuelCost1 = calculationFuelCost(positions, cheapestPosition1);
+//     const fuelCost2 = calculationFuelCost(positions, cheapestPosition2);
+//     console.log(`Cheapest position: `, cheapestPosition1);
+//     console.log(`Cheapest position: `, cheapestPosition2);
+//     console.log(`Fuel cost: `, fuelCost1);
+//     console.log(`Fuel cost: `, fuelCost2);
+//     console.log();
+// }
+// main();
+
+//day8
+// import { countEasyDigits, readFile } from "./day8/day8-1";
+
+const fileName = './src/day8/inputDay8.txt';
+// async function main() {
+//     const { inputs, outputs } = await readFile(fileName);
+//     const digits = countEasyDigits(outputs);
+//     console.log(digits);
+// }
+// main();
+import { decodeOutput, deduceDigits, readFile } from "./day8/day8-2";
+
 async function main() {
-    const positions = await readFile(fileName);
-    const cheapestPosition1 = findMedian(positions);
-    const cheapestPosition2 = findMediumPos(positions);
-    const fuelCost1 = calculationFuelCost(positions, cheapestPosition1);
-    const fuelCost2 = calculationFuelCost(positions, cheapestPosition2);
-    console.log(`Cheapest position: `, cheapestPosition1);
-    console.log(`Cheapest position: `, cheapestPosition2);
-    console.log(`Fuel cost: `, fuelCost1);
-    console.log(`Fuel cost: `, fuelCost2);
-    console.log();
+    const { inputs, outputs } = await readFile(fileName);
+
+    let totalSum = 0;
+
+    for (let i = 0; i < inputs.length; i++) {
+        const inputPatterns = inputs[i];
+        const outputPatterns = outputs[i];
+
+        const digitMap = deduceDigits(inputPatterns);
+        const outputValue = decodeOutput(outputPatterns, digitMap);
+
+        totalSum += outputValue;
+    }
+
+    console.log("Total sum of output values:", totalSum);
 }
+
 main();
