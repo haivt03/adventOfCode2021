@@ -1,0 +1,30 @@
+{
+  "name": "mini-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "format": "prettier --write \"**/*.{js,ts,json}\"",
+    "lint": "eslint --fix \"**/*.{js,ts,json}\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/line-reader": "^0.0.37",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "line-reader": "^0.4.0"
+  }
+}
