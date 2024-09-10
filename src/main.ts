@@ -4,6 +4,7 @@
 
 
 
+
 // const fileName = './src/day1/inputDay1.txt';
 // async function main(fileName: string): Promise<void> {
 //   const depths = await readFile(fileName);
@@ -89,34 +90,48 @@
 // }
 // main();
 
-//day8
-// import { countEasyDigits, readFile } from "./day8/day8-1";
+// //day8
+// // import { countEasyDigits, readFile } from "./day8/day8-1";
 
-const fileName = './src/day8/inputDay8.txt';
+// const fileName = './src/day8/inputDay8.txt';
+// // async function main() {
+// //     const { inputs, outputs } = await readFile(fileName);
+// //     const digits = countEasyDigits(outputs);
+// //     console.log(digits);
+// // }
+// // main();
+
+
+// import { decodeOutput, deduceDigits, readFile } from "./day8/day8-2";
+
 // async function main() {
 //     const { inputs, outputs } = await readFile(fileName);
-//     const digits = countEasyDigits(outputs);
-//     console.log(digits);
+
+//     let totalSum = 0;
+
+//     for (let i = 0; i < inputs.length; i++) {
+//         const inputPatterns = inputs[i];
+//         const outputPatterns = outputs[i];
+
+//         const digitMap = deduceDigits(inputPatterns);
+//         const outputValue = decodeOutput(outputPatterns, digitMap);
+
+//         totalSum += outputValue;
+//     }
+
+//     console.log("Total sum of output values:", totalSum);
 // }
+
 // main();
-import { decodeOutput, deduceDigits, readFile } from "./day8/day8-2";
 
+//day10
+import { calculateSyntaxErrorScore, readFile } from "./day10/day10";
+
+const fileName = './src/day10/input.txt';
 async function main() {
-    const { inputs, outputs } = await readFile(fileName);
-
-    let totalSum = 0;
-
-    for (let i = 0; i < inputs.length; i++) {
-        const inputPatterns = inputs[i];
-        const outputPatterns = outputs[i];
-
-        const digitMap = deduceDigits(inputPatterns);
-        const outputValue = decodeOutput(outputPatterns, digitMap);
-
-        totalSum += outputValue;
-    }
-
-    console.log("Total sum of output values:", totalSum);
+    const lines = await readFile(fileName);
+    const totalScore = calculateSyntaxErrorScore(lines);
+    console.log("Total Syntax Error Score:", totalScore);
 }
 
 main();
